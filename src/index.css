@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -96,6 +98,60 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-cyber-dark text-cyber-white font-plex;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .neon-glow {
+    box-shadow: 0 0 20px rgba(255, 0, 128, 0.5);
+  }
+
+  .electric-glow {
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+  }
+
+  .glassmorphism {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .cyber-border {
+    border: 2px solid transparent;
+    background: linear-gradient(45deg, #ff0080, #00d4ff) border-box;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) padding-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: exclude;
+  }
+
+  @keyframes pulse-neon {
+    0%,
+    100% {
+      box-shadow: 0 0 20px rgba(255, 0, 128, 0.5);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(255, 0, 128, 0.8);
+    }
+  }
+
+  .pulse-neon {
+    animation: pulse-neon 2s infinite;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .float-animation {
+    animation: float 3s ease-in-out infinite;
   }
 }
